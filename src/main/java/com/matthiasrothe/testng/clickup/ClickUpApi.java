@@ -21,4 +21,7 @@ public interface ClickUpApi {
 	@POST("task/{taskId}/field/{fieldId}")
 	Call<JsonObject> setCustomFieldValue(@Path("taskId") String taskId,
 			@Path("fieldId") String fieldId, @Body JsonObject body);
+	
+	@POST("task/{taskId}/comment")
+	Call<JsonObject> createTaskComment(@Path("taskId") String taskId, @Body JsonObject body);
 }
