@@ -12,6 +12,10 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import com.matthiasrothe.testng.clickup.internal.ClickUpApi;
+import com.matthiasrothe.testng.clickup.internal.ClickUpApiDelegate;
+import com.matthiasrothe.testng.clickup.internal.ClickUpApiProvider;
+
 import net.sf.jetro.path.JsonPath;
 import net.sf.jetro.tree.JsonArray;
 import net.sf.jetro.tree.JsonNumber;
