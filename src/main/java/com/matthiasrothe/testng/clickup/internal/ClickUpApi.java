@@ -1,4 +1,4 @@
-package com.matthiasrothe.testng.clickup;
+package com.matthiasrothe.testng.clickup.internal;
 
 import net.sf.jetro.tree.JsonObject;
 import retrofit2.Call;

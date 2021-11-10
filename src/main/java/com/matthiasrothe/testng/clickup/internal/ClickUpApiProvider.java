@@ -1,4 +1,4 @@
-package com.matthiasrothe.testng.clickup;
+package com.matthiasrothe.testng.clickup.internal;
 
 import java.io.IOException;
 import java.util.function.Supplier;
@@ -12,7 +12,7 @@ import okhttp3.Response;
 import retrofit2.Retrofit;
 
 public final class ClickUpApiProvider {
-	static final String API_KEY_PARAMETER_NAME = "click_up_api_key";
+	public static final String API_KEY_PARAMETER_NAME = "click_up_api_key";
 	
 	private static ClickUpApi api;
 	private static Supplier<String> apiKeySupplier;

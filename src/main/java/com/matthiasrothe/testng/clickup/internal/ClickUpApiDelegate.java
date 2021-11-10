@@ -1,8 +1,10 @@
-package com.matthiasrothe.testng.clickup;
+package com.matthiasrothe.testng.clickup.internal;
 
 import java.io.IOException;
 
 import org.testng.ITestNGMethod;
+
+import com.matthiasrothe.testng.clickup.ClickUp;
 
 import net.sf.jetro.tree.JsonObject;
 import retrofit2.Call;
