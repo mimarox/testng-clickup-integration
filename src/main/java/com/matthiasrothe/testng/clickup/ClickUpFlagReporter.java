@@ -13,6 +13,22 @@ import com.matthiasrothe.testng.clickup.internal.TaskResult;
 import net.sf.jetro.tree.JsonBoolean;
 import net.sf.jetro.tree.JsonObject;
 
+/**
+ * This reporter checks or unchecks a check box on each task that has at
+ * least been referenced once as the taskId on a test method annotated with
+ * &#64;{@link ClickUp}. It checks it if all invocations of test methods so
+ * annotated with the same taskId were executed successfully. Otherwise it
+ * unchecks the check box.
+ * <p>
+ * The check box MUST be a custom field on the ClickUp task named &quot;Tests
+ * Succeeded&quot; of type &quot;checkbox&quot;.
+ * <p>
+ * This reporter expects a parameter named click_up_api_key to be configured
+ * at the suite level with the value set to the API key provided by the ClickUp
+ * app.
+ * 
+ * @author Matthias Rothe
+ */
 public class ClickUpFlagReporter implements IReporter {
 	
 	@Override

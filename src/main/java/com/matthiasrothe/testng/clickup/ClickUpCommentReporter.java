@@ -8,6 +8,7 @@ import java.time.format.FormatStyle;
 import java.util.Locale;
 import java.util.Optional;
 
+import org.testng.ISuite;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -24,6 +25,18 @@ import net.sf.jetro.tree.JsonObject.JsonProperties;
 import net.sf.jetro.tree.JsonType;
 import retrofit2.Call;
 
+/**
+ * This reporter writes a comment to each task for each invocation of a
+ * test method annotated with &#64;{@link ClickUp} and reports the date
+ * and time of the invocation of the test method, whether it has been
+ * executed successfully or failed and any test data provided.
+ * <p>
+ * It expects a parameter named click_up_api_key to be configured at the
+ * suite level with the value set to the API key provided by the ClickUp
+ * app.
+ * 
+ * @author Matthias Rothe
+ */
 public class ClickUpCommentReporter implements ITestListener {
 	private static final DateTimeFormatter FORMATTER =
 			new DateTimeFormatterBuilder().appendLocalized(FormatStyle.MEDIUM, FormatStyle.MEDIUM).
@@ -39,7 +52,11 @@ public class ClickUpCommentReporter implements ITestListener {
 
 	@Override
 	public void onStart(ITestContext context) {
-		apiKey = context.getSuite().getParameter(ClickUpApiProvider.API_KEY_PARAMETER_NAME);
+		onSuite(context.getSuite());
+	}
+
+	public void onSuite(ISuite suite) {
+		apiKey = suite.getParameter(ClickUpApiProvider.API_KEY_PARAMETER_NAME);
 	}
 	
 	@Override

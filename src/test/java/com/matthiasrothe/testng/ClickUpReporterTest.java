@@ -1,6 +1,7 @@
 package com.matthiasrothe.testng;
 
 import static org.testng.Assert.assertEquals;
+import static functions.Functions.isBetween;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -27,9 +28,5 @@ public class ClickUpReporterTest {
 			{10, lowerBound, upperBound, true},
 			{20, lowerBound, upperBound, false},
 		};
-	}
-	
-	private boolean isBetween(int value, int lowerBound, int upperBound) {
-		return value >= lowerBound && value <= upperBound;
 	}
 }
