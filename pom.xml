@@ -46,11 +46,6 @@
 	</distributionManagement>
 
 	<properties>
-		<bundle.name>${project.name}</bundle.name>
-		<bundle.symbolic-name>${project.artifactId}</bundle.symbolic-name>
-		<bundle.description>${project.description}</bundle.description>
-		<bundle.build-by>Maven</bundle.build-by>
-		<bundle.namespace>net.sf.jetro</bundle.namespace>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
