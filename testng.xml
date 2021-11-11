@@ -2,8 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="TestNG ClickUp Integration Suite" parallel="methods">
 	<listeners>
-		<listener class-name="com.matthiasrothe.testng.clickup.ClickUpReporter" />
+		<listener class-name="com.matthiasrothe.testng.clickup.ClickUpCommentReporter" />
+		<listener class-name="com.matthiasrothe.testng.clickup.ClickUpFlagReporter" />
+		<listener class-name="com.matthiasrothe.testng.clickup.ClickUpRatingReporter" />
 	</listeners>
+	
+	<parameter name="click_up_api_key" value="pk_36404531_BWL3ZZPWP1CNITOB0EBQ4OCEQM8JI7Z8"/>
 	
 	<test name="All Tests" >
 		<packages>
