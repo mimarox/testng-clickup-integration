@@ -116,12 +116,7 @@ public class ClickUpCommentReporter implements ITestListener {
 		body.put("assignee", assigneeId);
 		body.put("notify_all", true);
 		
-		Call<JsonObject> createCommentCall = api.createTaskComment(taskId, body.asJsonObject());
-
-		try {
-			createCommentCall.execute();
-		} catch (IOException e) {
-		}
+		ClickUpApiDelegate.executeCall(() -> api.createTaskComment(taskId, body.asJsonObject()));
 	}
 	
 	private String buildCommentText(ITestResult result, boolean testSucceeded) {

@@ -2,7 +2,6 @@ package com.matthiasrothe.testng.clickup.internal;
 
 import static com.matthiasrothe.testng.clickup.internal.Util.isValid;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -20,7 +19,6 @@ import net.sf.jetro.tree.JsonArray;
 import net.sf.jetro.tree.JsonObject;
 import net.sf.jetro.tree.JsonString;
 import net.sf.jetro.tree.JsonType;
-import retrofit2.Call;
 
 public class ClickUpReporterDelegate {
 	private static final JsonPath CUSTOM_FIELDS_PATH = JsonPath.compile("$.custom_fields");
@@ -141,11 +139,6 @@ public class ClickUpReporterDelegate {
 		JsonObject body = new JsonObject();
 		body.asMap().put("value", value);
 		
-		Call<JsonObject> setCustomFieldValueCall = api.setCustomFieldValue(taskId, fieldId, body);
-		
-		try {
-			setCustomFieldValueCall.execute();
-		} catch (IOException e) {
-		}
+		ClickUpApiDelegate.executeCall(() -> api.setCustomFieldValue(taskId, fieldId, body));
 	}
 }
